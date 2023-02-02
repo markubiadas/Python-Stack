@@ -1,0 +1,16 @@
+body{
+    padding: 8% 15%;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+.twoButtons {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem auto;
+    
+}
