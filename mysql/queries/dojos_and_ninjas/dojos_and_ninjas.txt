@@ -1,0 +1,37 @@
+-- Query: Create 3 new dojos
+INSERT INTO dojos (name)
+VALUES ("Wind Dojo"), ("Fire Dojo"), ("Water Dojo");
+
+-- Query: Delete the 3 dojos you just created
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM dojos;
+
+-- Query: Create 3 more dojos
+INSERT INTO dojos (name)
+VALUES ("Earth Dojo"), ("Ice Dojo"), ("Leaf Dojo");
+
+-- Query: Create 3 ninjas that belong to the first dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Naruto", "Uzumaki", 20, 4), ("Sasuke", "Uchiha", 20, 4), ("Sakura", "Haruno", 20, 4);
+
+-- Query: Create 3 ninjas that belong to the second dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Minato", "Namikaze", 30, 5), ("Itachi", "Uchiha", 24, 5), ("Kakashi", "Hatake", 29, 5);
+
+-- Query: Create 3 ninjas that belong to the third dojo
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUES ("Hinata", "Hyuga", 20, 6), ("Rock", "Lee", 21, 6), ("Shikamaru", "Nara", 21, 6);
+
+-- Query: Retrieve all the ninjas from the first dojo
+SELECT * FROM ninjas
+WHERE ninjas.dojo_id = 4;
+
+-- Query: Retrieve all the ninjas from the last dojo
+SELECT * FROM ninjas
+WHERE ninjas.dojo_id = 6;
+
+-- Query: Retrieve the last ninja's dojo
+SELECT * FROM dojos
+WHERE dojos.id = (
+SELECT dojo_id FROM ninjas
+ORDER BY dojo_id DESC LIMIT 1);
