@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Recipe</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <h1 class="mt-5 mb-5">Welcome, {{logged_user.first_name}} {{logged_user.last_name}}</h1>
+
+                <!-- Buttons for BACK and LOGOUT -->
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-primary me-3" href="/dashboard">Back to Recipes</a>
+                    <a class="btn btn-primary" href="/users/logout">Log Out</a>
+                </div>
+
+
+                <h1 class="text-center mb-4">{{this_recipe.name}}</h1>
+
+                <table class="table w-50 mx-auto">
+                    <tbody>
+                        <tr>
+                            <th>Description:</th>
+                            <td>{{this_recipe.description}}</td>
+                        </tr>
+                        <tr>
+                            <th>Under 30 Minutes?</th>
+                            <!-- the same as the one in welcome page -->
+                            <td>{% if this_recipe.under == 1 %} Yes {% else %} No {% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Instructions:</th>
+                            <td>{{this_recipe.instruction}}</td>
+                        </tr>
+                        <tr>
+                            <th>Date Made:</th>
+                            <td>{{this_recipe.date}}</td>
+                        </tr>
+                        <tr>
+                            <th>Posted By:</th>
+                            <td>{{this_recipe.chef.first_name}} {{this_recipe.chef.last_name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
